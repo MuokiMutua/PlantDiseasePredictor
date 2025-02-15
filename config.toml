@@ -1,0 +1,70 @@
+#The config.toml file in a Streamlit project is used to configure 
+the behavior and settings of the Streamlit app, 
+and it contains various options that control how the app runs, 
+how it interacts with the server, and how it behaves during execution.
+
+[global]
+# If set to True, will show a warning when you run a Streamlit-enabled script via "python my_script.py".
+# This is to remind you that the correct way to run a Streamlit app is using "streamlit run my_script.py"
+# Default: true
+showWarningOnDirectExecution = true
+
+[logger]
+# Set the level of logging verbosity. You can set it to 'error', 'warning', 'info', or 'debug'.
+# 'debug' will give you the most detailed logs (useful for development), while 'error' will only show critical errors.
+# Default: 'info'
+level = "debug"
+
+[runner]
+# This option allows you to type a variable or string by itself in a single line of Python code in Streamlit, 
+# and Streamlit will display its value directly in the app. 
+# This can make development faster and more interactive.
+# Default: true
+magicEnabled = true
+
+[server]
+# Specify folders that Streamlit should not watch for changes. You can list directories that should be ignored.
+# This can be useful when you have directories with large files or model checkpoints that shouldn't trigger a reload.
+# Default: []
+folderWatchBlacklist = ['']
+
+# If set to false, the app will not automatically open a browser window when started. 
+# This is useful when you are running the app on a server or a remote machine.
+# Default: false
+headless = true
+
+# Set to true if you want the app to share the live server, enabling live monitoring of app changes and analysis.
+# Default: false
+liveSave = false
+
+# If set to true, Streamlit will automatically rerun the app whenever the source code is modified on disk.
+# This is useful for rapid development and testing. However, you might want to disable it in production to prevent unnecessary reloads.
+# Default: false
+runOnSave = false
+
+# Port on which the Streamlit server will listen for incoming connections. 
+# You can set it to a specific port if you need the app to run on a port other than the default 8501.
+# Default: 8501
+port = 80
+
+# Enables Cross-Origin Resource Sharing (CORS) to allow your app to make requests across different origins (domains).
+# Setting to false can help prevent security issues, especially in production.
+# Default: true
+enableCORS = false
+
+[browser]
+# The IP address or DNS name that the browser should connect to. 
+# Setting to '0.0.0.0' will allow connections from any IP address, useful when you deploy the app on a server.
+# Default: 'localhost'
+serverAddress = "0.0.0.0"
+
+# Whether Streamlit should collect usage statistics. 
+# If set to false, no usage data is sent to Streamlit. You might disable this for privacy reasons.
+# Default: true
+gatherUsageStats = true
+
+# The port that the browser should use to connect to the server when in liveSave mode.
+# This should match the 'server.port' value in the [server] section. 
+# Default: the value set in server.port (e.g., 80)
+serverPort = 80
+ 
